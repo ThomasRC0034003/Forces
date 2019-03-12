@@ -34,22 +34,35 @@ namespace Forces
 
         double cos(double x)
         {
-            return (Math.Acos(x) * 180.0 / Math.PI);
+            return (Math.Cos(x * Math.PI / 180.0));
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            try
+            {
+                double angle = double.Parse(textBox2.Text);
+                double F = double.Parse(textBox1.Text);
 
+                double Fx = F * cos(angle);
+                double Fy = F * sin(angle);
+
+                MessageBox.Show("Fx = " + Fx.ToString("N3") + " N" + "\n" + "Fy = " + Fy.ToString("N3") + " N");
+            }
+            catch
+            {
+                MessageBox.Show("Error");
+            }
+
+            
         }
-
         private void label1_Click(object sender, EventArgs e)
         {
-            double F = double.Parse(textBox1.Text);
-            double Fy = F * cos(angle);
-            double Fy = F * sin(angle);
+  
+        }
 
-            MessageBox.Show("Fx = " + Fx.ToString("N3") + "N" + "\n" + "Fy" = Fy.ToString);
-
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }
